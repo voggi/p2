@@ -42,14 +42,14 @@ require('BillSplitter.php');
                     <div class="form-group">
                         <label for="number-of-people">How many are paying?</label>
 
-                        <input type="number" class="form-control" id="number-of-people" name="number-of-people" placeholder="3  ">
+                        <input type="number" class="form-control" id="number-of-people" name="number-of-people" placeholder="3">
                     </div>
 
                     <div class="form-group">
                         <label for="tip">How was the service?</label>
 
                         <select class="form-control" id="tip" name="tip">
-                            <option selected="true" value="0.25">Excellent (25% Tip)</option>
+                            <option value="0.25" selected>Excellent (25% Tip)</option>
                             <option value="0.15">Good (15% Tip)</option>
                             <option value="0.05">Poor (5% Tip)</option>
                         </select>
@@ -57,7 +57,7 @@ require('BillSplitter.php');
 
                     <div class="form-group">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="round-up" name="round-up"></form>
+                            <input type="checkbox" class="form-check-input" id="round-up" name="round-up">
 
                             <label class="form-check-label" for="round-up">Want me to round up?</label>
                         </div>
