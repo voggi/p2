@@ -1,12 +1,13 @@
 # Project 2
-+ By: *your first and last name*
-+ Production URL: <http://p2.yourdomain.com>
++ By: *Nicolas Vogelpoth*
++ Production URL: <http://p2.bookrunner.de>
 
 ## Outside resources
-*your list of outside resources go here*
++ For general styles: [Bootstrap CSS](https://getbootstrap.com/)
++ To round numbers: [PHP Round Function](http://php.net/manual/de/function.round.php)
 
 ## Code style divergences
-*list any divergences from PSR-1/PSR-2 and course guidelines on code style*
+*n/a*
 
 ## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+*n/a*
