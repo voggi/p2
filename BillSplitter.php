@@ -1,6 +1,6 @@
 <?php
 
-namespace P2;
+namespace Voggi;
 
 class BillSplitter
 {
@@ -12,15 +12,63 @@ class BillSplitter
 
     public $roundUp;
 
-    public function construct($amount, $numberOfPeople, $tip, $roundUp = false)
+    public function construct()
+    {
+        $this->amount = null;
+
+        $this->numberOfPeople = null;
+
+        $this->tip = null;
+
+        $this->roundUp = null;
+    }
+
+    public function setAmount($amount)
     {
         $this->amount = $amount;
+    }
 
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function setNumberOfPeople($numberOfPeople)
+    {
         $this->numberOfPeople = $numberOfPeople;
+    }
 
+    public function getNumberOfPeople()
+    {
+        return $this->numberOfPeople;
+    }
+
+    public function setTip($tip)
+    {
         $this->tip = $tip;
+    }
 
+    public function getTip()
+    {
+        return $this->tip;
+    }
+
+    public function setRoundUp($roundUp)
+    {
         $this->roundUp = $roundUp;
+    }
+
+    public function getRoundUp()
+    {
+        return $this->roundUp;
+    }
+
+    public function hasData()
+    {
+        return isset($this->amount) &&
+               isset($this->numberOfPeople) &&
+               isset($this->tip) &&
+               isset($this->roundUp);
     }
 
     public function getAmountOwed()
@@ -41,7 +89,7 @@ class BillSplitter
         if ($this->numberOfPeople == 1) {
             return 'You owe ' . $amountOwed . ' EUR';
         } else {
-            return 'Everyone owes ' . $amountOwed . 'EUR';
+            return 'Everyone owes ' . $amountOwed . ' EUR';
         }
     }
 }

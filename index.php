@@ -1,7 +1,6 @@
 <?php
-
-require('BillSplitter.php');
-
+require('helpers.php');
+require('logic.php');
 ?>
 
 <!doctype html>
@@ -24,9 +23,9 @@ require('BillSplitter.php');
             </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row">
             <div class="col">
-                <form method="POST" action="http://p2.loc">
+                <form method="GET" action="index.php">
                     <div class="form-group">
                         <label for="amount">What's the total amount?</label>
                         
@@ -67,6 +66,14 @@ require('BillSplitter.php');
                 </form>
             </div>
         </div>
+
+        <?php if ($billSplitter->hasData()) : ?>
+            <div class="row">
+                <div class="col">
+                    <?=$billSplitter->getAmountOwedString(); ?>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </body>
 </html>
