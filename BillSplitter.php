@@ -4,15 +4,15 @@ namespace Voggi;
 
 class BillSplitter
 {
-    public $amount;
+    private $amount;
 
-    public $numberOfPeople;
+    private $numberOfPeople;
 
-    public $tip;
+    private $tip;
 
-    public $roundUp;
+    private $roundUp;
 
-    public function construct()
+    public function __construct()
     {
         $this->amount = null;
 

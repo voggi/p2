@@ -67,10 +67,10 @@ require('logic.php');
             </div>
         </div>
 
-        <?php if ($billSplitter->hasData()) : ?>
+        <?php if ($result) : ?>
             <div class="row">
                 <div class="col">
-                    <?=$billSplitter->getAmountOwedString(); ?>
+                    <?=$result; ?>
                 </div>
             </div>
         <?php endif; ?>

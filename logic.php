@@ -3,9 +3,12 @@
 require('BillSplitter.php');
 require('Validator.php');
 
-$billSplitter = new Voggi\BillSplitter();
+use Voggi\Validator;
+use Voggi\BillSplitter;
 
-if ($validated = Voggi\Validator::validate($_GET)) {
+if ($validated = Validator::validate($_GET)) {
+    $billSplitter = new BillSplitter();
+
     $billSplitter->setAmount($validated['amount']);
 
     $billSplitter->setNumberOfPeople($validated['number-of-people']);
@@ -13,4 +16,6 @@ if ($validated = Voggi\Validator::validate($_GET)) {
     $billSplitter->setTip($validated['tip']);
 
     $billSplitter->setRoundUp($validated['round-up']);
+
+    $result = $billSplitter->getAmountOwedString();
 }
