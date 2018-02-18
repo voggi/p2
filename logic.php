@@ -1,21 +1,31 @@
 <?php
 
+require('Form.php');
 require('BillSplitter.php');
-require('Validator.php');
 
-use Voggi\Validator;
+use DWA\Form;
 use Voggi\BillSplitter;
 
-if ($validated = Validator::validate($_GET)) {
-    $billSplitter = new BillSplitter();
+$form = new Form($_GET);
 
-    $billSplitter->setAmount($validated['amount']);
+$billSplitter = new BillSplitter();
 
-    $billSplitter->setNumberOfPeople($validated['number-of-people']);
-
-    $billSplitter->setTip($validated['tip']);
-
-    $billSplitter->setRoundUp($validated['round-up']);
-
-    $result = $billSplitter->getAmountOwedString();
+if ($form->isSubmitted()) {
+    $errors = $form->validate([
+        'amount' => 'required|numeric',
+        'number-of-people' => 'required|numeric',
+    ]);
 }
+
+if (!$form->hasErrors) {
+    $billSplitter->setAmount($form->get('amount'));
+
+    $billSplitter->setNumberOfPeople($form->get('number-of-people'));
+
+    $billSplitter->setTip($form->get('tip', 0));
+
+    $billSplitter->setRoundUp($form->has('round-up'));
+}
+
+// If the form has errors, then $result is an empty string.
+$result = $billSplitter->getAmountOwedString();

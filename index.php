@@ -17,18 +17,18 @@ require('logic.php');
 </head>
 <body>
     <div class="container">
-        <div class="row mt-5">
-            <div class="col">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-6">
                 <h3>Split My Bill</h3>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-6">
                 <form method="GET" action="index.php">
                     <div class="form-group">
                         <label for="amount">What's the total amount?</label>
-                        
+
                         <div class="input-group">
                             <input type="number" class="form-control" id="amount" name="amount" placeholder="15.99">
 
@@ -36,12 +36,24 @@ require('logic.php');
                                 <span class="input-group-text">Euro</span>
                             </div>
                         </div>
+
+                        <?php if ($form->hasErrors) : ?>
+                            <div class="invalid-feedback">
+                                <p><?=$errors; ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group">
                         <label for="number-of-people">How many are paying?</label>
 
                         <input type="number" class="form-control" id="number-of-people" name="number-of-people" placeholder="3">
+
+                        <?php if ($form->hasErrors) : ?>
+                            <div class="invalid-feedback">
+                                <p><?=$errors; ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group">
@@ -67,10 +79,26 @@ require('logic.php');
             </div>
         </div>
 
+        <?php if ($form->hasErrors) : ?>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-danger">
+                        <ul>
+                            <?php foreach ($errors as $error) : ?>
+                                <li><?=$error; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <?php if ($result) : ?>
-            <div class="row">
-                <div class="col">
-                    <?=$result; ?>
+            <div class="row mt-5 justify-content-center">
+                <div class="col-6">
+                    <div class="alert alert-success">
+                        <?=$result; ?>
+                    </div>
                 </div>
             </div>
         <?php endif; ?>

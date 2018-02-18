@@ -73,23 +73,29 @@ class BillSplitter
 
     public function getAmountOwed()
     {
-        $exactAmount = ($this->amount * (1 + $this->tip)) / $this->numberOfPeople;
+        if ($this->hasData()) {
+            $exactAmount = ($this->amount * (1 + $this->tip)) / $this->numberOfPeople;
         
-        if ($this->roundUp) {
-            return ((int) $exactAmount) + 1;
+            if ($this->roundUp) {
+                return ((int) $exactAmount) + 1;
+            } else {
+                return round($exactAmount, 2);
+            }
         } else {
-            return round($exactAmount, 2);
+            return null;
         }
     }
 
     public function getAmountOwedString()
     {
-        $amountOwed = $this->getAmountOwed();
-
-        if ($this->numberOfPeople == 1) {
-            return 'You owe ' . $amountOwed . ' EUR';
+        if ($amountOwed = $this->getAmountOwed()) {
+            if ($this->numberOfPeople == 1) {
+                return 'You owe ' . $amountOwed . ' EUR';
+            } else {
+                return 'Everyone owes ' . $amountOwed . ' EUR';
+            }
         } else {
-            return 'Everyone owes ' . $amountOwed . ' EUR';
+            return '';
         }
     }
 }
