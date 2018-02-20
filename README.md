@@ -4,7 +4,7 @@
 
 ## Outside resources
 + For general styles: [Bootstrap CSS](https://getbootstrap.com/)
-+ To round numbers: [PHP Round Function](http://php.net/manual/de/function.round.php)
++ To handle floating rate input: [`<input type="number">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number)
 
 ## Code style divergences
 *n/a*

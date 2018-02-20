@@ -1,6 +1,6 @@
 <?php
 
-namespace Voggi;
+namespace DWA;
 
 class BillSplitter
 {

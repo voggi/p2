@@ -2,18 +2,19 @@
 
 require('Form.php');
 require('BillSplitter.php');
+require('ExtendedForm.php');
 
-use DWA\Form;
-use Voggi\BillSplitter;
+use DWA\BillSplitter;
+use DWA\ExtendedForm;
 
-$form = new Form($_GET);
+$form = new ExtendedForm($_GET);
 
 $billSplitter = new BillSplitter();
 
 if ($form->isSubmitted()) {
     $errors = $form->validate([
         'amount' => 'required|numeric',
-        'number-of-people' => 'required|numeric',
+        'number-of-people' => 'required|numeric|min:0',
     ]);
 }
 
