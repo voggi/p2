@@ -4,10 +4,11 @@
 
 ## Outside resources
 + For general styles: [Bootstrap CSS](https://getbootstrap.com/)
-+ To handle floating rate input: [`<input type="number">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number)
++ As general php reference: [PHP Manual](http://php.net/manual/en/)
++ To handle floating rate inputs: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number)
 
 ## Code style divergences
-*n/a*
++ In a few cases, my PHP code extended beyond 80 characters.
 
 ## Notes for instructor
 *n/a*

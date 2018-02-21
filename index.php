@@ -23,6 +23,8 @@ require('logic.php');
         <div class="row mt-5 justify-content-center">
             <div class="col-4">
                 <h3>Who Owes What?</h3>
+
+                <p>This is a simple app to split a bill.</p>
             </div>
         </div>
 
@@ -33,11 +35,11 @@ require('logic.php');
                         <label for="amount">What's the total amount?</label>
 
                         <div class="input-group">
-                            <input type="number" 
-                                   class="form-control" 
-                                   id="amount" 
-                                   name="amount" 
-                                   placeholder="15.99" 
+                            <input type="number"
+                                   class="form-control"
+                                   id="amount"
+                                   name="amount"
+                                   placeholder="15.99"
                                    step="0.01"
                                    value="<?=$form->prefill('amount'); ?>">
 
@@ -45,17 +47,21 @@ require('logic.php');
                                 <span class="input-group-text">Euro</span>
                             </div>
                         </div>
+
+                        <small class="form-text text-muted">This field is required.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="number-of-people">How many are paying?</label>
 
-                        <input type="number" 
-                               class="form-control" 
-                               id="number-of-people" 
-                               name="number-of-people" 
-                               placeholder="3" 
+                        <input type="number"
+                               class="form-control"
+                               id="number-of-people"
+                               name="number-of-people"
+                               placeholder="3"
                                value="<?=$form->prefill('number-of-people'); ?>">
+
+                        <small class="form-text text-muted">This field is required.</small>
                     </div>
 
                     <div class="form-group">
@@ -78,10 +84,10 @@ require('logic.php');
 
                     <div class="form-group">
                         <div class="form-check">
-                            <input type="checkbox" 
-                                   class="form-check-input" 
-                                   id="round-up" 
-                                   name="round-up" 
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="round-up"
+                                   name="round-up"
                                    <?= $form->has('round-up') ? 'checked' : ''; ?>>
 
                             <label class="form-check-label" for="round-up">Want me to round up?</label>
@@ -99,7 +105,8 @@ require('logic.php');
                     <div class="alert alert-danger">
                         <ul>
                             <?php foreach ($errors as $error) : ?>
-                                <li><?=$error; ?></li>
+                                <!-- Maybe not necessary to sanitize this, but for the sake of completeness I do. -->
+                                <li><?=sanitize($error); ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -111,7 +118,8 @@ require('logic.php');
             <div class="row mt-5 justify-content-center">
                 <div class="col-4">
                     <div class="alert alert-success">
-                        <?=$result; ?>
+                        <!-- Maybe not necessary to sanitize this, but for the sake of completeness I do. -->
+                        <?=sanitize($result); ?>
                     </div>
                 </div>
             </div>

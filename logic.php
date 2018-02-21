@@ -13,7 +13,7 @@ $billSplitter = new BillSplitter();
 
 if ($form->isSubmitted()) {
     $errors = $form->validate([
-        'amount' => 'required|numeric',
+        'amount' => 'required|numeric|min:0',
         'number-of-people' => 'required|numeric|min:0',
     ]);
 }
